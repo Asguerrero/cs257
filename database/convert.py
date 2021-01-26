@@ -196,7 +196,7 @@ def main():
     create_csv(medals_table, 'medals.csv')
     create_csv(games_table, 'olympic_games.csv')
     create_noc_table_csv(noc_table, noc_regions, 'national_olympic_committees.csv')
-    create_linking_table_csv(updated_athlete_events, 'liking_table.csv')
+    create_linking_table_csv(updated_athlete_events, 'linking_table.csv')
 
 
 main()
