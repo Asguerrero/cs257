@@ -1,5 +1,5 @@
 # AUTHORS: Valentina Guerrero, Kai Johnson
-# Dat3: 1/26/2021
+# Date: 1/26/2021
 
 import csv
 
