@@ -90,15 +90,18 @@ def add_games_ids(athlete_events):
     for row in athlete_events:
         name = row[8]
         try:
+            # If the dictionary has a key that matches the name of the athlete, assign the corresponding id
             dictionary[name]
             id = dictionary[name]
             row.append(id)
 
         except:
-            dictionary[name] = counter
             counter = counter + 1
+            dictionary[name] = counter
             row.append(counter)
             games_table.append([row[18], row[8]])
+    print(dictionary["2000 Summer"])
+    print(games_table)
 
     return athlete_events, games_table
 
@@ -115,8 +118,8 @@ def add_medal_ids(athlete_events):
             row.append(id)
 
         except:
-            dictionary[name] = counter
             counter = counter + 1
+            dictionary[name] = counter
             row.append(counter)
             medals_table.append([row[19], row[14]])
 
@@ -135,8 +138,8 @@ def add_noc_id(athlete_events):
             row.append(id)
 
         except:
-            dictionary[name] = counter
             counter = counter + 1
+            dictionary[name] = counter
             row.append(counter)
             noc_table.append([row[20], row[7]])
 
@@ -147,7 +150,7 @@ def replace_null_entries_noc_table(noc_table):
         try:
             row[2]
         except:
-            row.append('NULL') 
+            row.append('NULL')
 
 
 def create_csv(table, file_name):
@@ -184,6 +187,7 @@ def main():
 
     # Add ids to all entities that have their own table in the database
     updated_athlete_events, athlete_table = add_athlete_ids(athlete_events)
+
     updated_athlete_events, sports_table = add_sport_ids(updated_athlete_events)
     updated_athlete_events, events_table = add_events_ids(updated_athlete_events)
     updated_athlete_events, games_table = add_games_ids(updated_athlete_events)
@@ -195,9 +199,10 @@ def main():
     create_csv(events_table, 'events.csv')
     create_csv(medals_table, 'medals.csv')
     create_csv(games_table, 'olympic_games.csv')
+    create_csv(updated_athlete_events, 'updated.csv')
     create_noc_table_csv(noc_table, noc_regions, 'national_olympic_committees.csv')
     create_linking_table_csv(updated_athlete_events, 'linking_table.csv')
 
 
-main()
 
+main()
