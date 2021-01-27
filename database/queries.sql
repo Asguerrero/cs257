@@ -1,6 +1,6 @@
 --- List all the NOCs (National Olympic Committees), in alphabetical order by abbreviation. 
-
 SELECT abbreviation, country FROM national_olympic_committees ORDER BY abbreviation;
+
 
 ---List the names of all the athletes from Kenya. 
 SELECT DISTINCT
@@ -16,6 +16,7 @@ WHERE
     linking_table.athlete_id = athletes.id
 ORDER BY 
     athletes.full_name;
+
 
 ---List all the medals won by Greg Louganis, sorted by year. 
 SELECT  
@@ -40,6 +41,7 @@ WHERE
     linking_table.olympic_game_id = olympic_games.id
 ORDER BY 
     olympic_games.game;
+
 
 ---List all the NOCs and the number of gold medals they have won, in decreasing order of the number of gold medals.
 SELECT 
