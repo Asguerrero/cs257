@@ -1,3 +1,5 @@
+# Author: Valentina Guerrero
+
 import argparse
 import psycopg2
 
